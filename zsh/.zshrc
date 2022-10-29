@@ -33,8 +33,7 @@ complete -C '/usr/local/bin/aws_completer/' aws
 
 [ -f "$ZDOTDIR/dev.zsh" ] && source "$ZDOTDIR/dev.zsh"
 
-# save zoxide database on a drive folder according to the machine you're
-export _ZO_DATA_DIR="$HOME/drive/.local/share/zoxide/$host_name"
+export _ZO_DATA_DIR="$HOME/Insync/gustavorangel91@gmail.com/Google Drive/.local/share/zoxide/amzn"
 export _ZO_ECHO=1 # z will print the matched directory before navigating to it.
 eval "$(zoxide init zsh)"
 # ^r to activate mcfly
