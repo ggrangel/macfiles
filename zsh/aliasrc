@@ -1,0 +1,55 @@
+# commands w/ default options
+alias ls="ls -hNAv --color=auto --group-directories-first" # N supresses quotes, A ignores the dot and dotdot dirs, v shows dotfiles first
+alias mkdir="mkdir -pv"
+alias mv="mv -v"
+alias rm="rm -iv" # run \rm to ignore its alias
+
+# one-letter aliases
+alias l="lsd -hA --group-dirs first"
+alias p="sudo pacman"
+alias t="tmux"
+alias v="nvim"
+
+# if I only type lazygit, autojump may take us to the lazygit dir
+alias gg="lazygit -p ."
+alias gs="git status"
+alias gd="git diff"
+alias td="sh todo.sh"
+alias src="source $ZDOTDIR/.zshrc"
+
+# devour
+alias dbrave='devour brave'
+alias dsxiv='devour sxiv'
+alias dzathura='devour zathura'
+
+# copy current pwd to clipboard
+alias cpwd="pwd | tr '\n' ' ' | xsel -ib"
+
+# show tmux keys
+alias tmkeys="cat $HOME/.config/tmux/tmux.conf | grep ^bind"
+
+# Quickly write and read notes
+notesFile="$HOME/drive/notes"
+alias rnote="bat $notesFile"
+alias cnote="truncate -s 0 $notesFile" # -s 0 specify the size
+# save a quick note: must be a function to accept arguments
+function wnote {
+    echo "$(date "+%a, %b %d %Y @ %H:%M")" >> $notesFile
+    echo "$@" >> $notesFile
+    echo "" >> $notesFile
+}
+
+# make a new directory and cd to it
+mkd () {
+    # -- makes sure the passed name for the new directory is not interpreted as an option to mkdir or cd
+    # -P used on cd resolves symbolink links.
+    mkdir -p -- "$1" &&
+    cd -P -- "$1"
+}
+
+# print all sxhkd keybindings
+keys () {
+  sxhkd_folder="$HOME/.config/sxhkd" 
+  host_name=$(cat /etc/hostname)
+  bat "$sxhkd_folder/sxhkdrc" "$sxhkd_folder/sxhkdrc.$host_name"
+}
