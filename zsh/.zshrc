@@ -40,5 +40,7 @@ eval "$(zoxide init zsh)"
 eval "$(mcfly init zsh)"
 export MCFLY_KEY_SCHEME=vim
 
+export PATH="$PATH:$HOME/scripts"
+
 # load zhs-syntax-highlighting; should be last.
 source $HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
