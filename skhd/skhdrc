@@ -1,15 +1,24 @@
-cmd + alt - return : /usr/local/bin/kitty -d ~
+# to find out keystrokes codes, run 'skhd -o'
+# keybindings taken:
+# cmd + alt + b (change keyboard input source)
+# cmd + alt + d (show docker)
+# cmd + alt + q (lock screen)
+# cmd + alt + t (spolight search)
 
-cmd + alt - r : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-
-cmd + alt - z : /Users/ggrangel/scripts/passmenu.sh
-
-cmd + alt + shift - y : brew services restart yabai
+## Applications
 
 cmd + alt + shift - q: pmset sleepnow
 
-cmd + alt + shift - b: launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+cmd + alt - backspace : yabai -m window --close
+cmd + alt - return : /usr/local/bin/kitty --single-instance -d ~
 
+cmd + alt - a :  echo "yabai -m rule --add app="$(yabai -m query --windows --window | jq .app)" manage=off" >> $HOME/.config/yabai/yabairc
+cmd + alt - r : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+cmd + alt - s : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai" # same as brew services restart yabai
+cmd + alt - y: yabai -m display --focus recent
+cmd + alt - z : /Users/ggrangel/scripts/passmenu.sh
+
+## Windows movement
 cmd + alt - h : yabai -m window --focus west
 cmd + alt - j : yabai -m window --focus south
 cmd + alt - k : yabai -m window --focus north
@@ -25,12 +34,10 @@ cmd + alt + ctrl - j : yabai -m window --resize bottom:0:50; yabai -m window --r
 cmd + alt + ctrl - k : yabai -m window --resize top:0:-50; yabai -m window --resize bottom:0:-50
 cmd + alt + ctrl - l : yabai -m window --resize right:50:0; yabai -m window --resize left:50:0
 
-cmd + alt - backspace : yabai -m window --close
+# cmd + alt + shift - 0x29 : cur_window=$(yabai -m query --windows --window | jq '.id') && \
+#                       yabai -m window --display recent && yabai -m window --focus ${cur_window}
 
-cmd + alt - 0x29 : yabai -m display --focus recent
-
-cmd + alt + shift - 0x29 : cur_window=$(yabai -m query --windows --window | jq '.id') && \
-                      yabai -m window --display recent && yabai -m window --focus ${cur_window}
+## Spaces movement
 
 cmd + alt - u : yabai -m space --focus 1
 cmd + alt - i : yabai -m space --focus 2
@@ -49,3 +56,6 @@ cmd + alt + shift - m : yabai -m window --space 5 ; yabai -m space --focus 5
 cmd + alt + shift - 0x2B : yabai -m window --space 6 ; yabai -m space --focus 6
 cmd + alt + shift - 0x2F : yabai -m window --space 7 ; yabai -m space --focus 7 
 cmd + alt + shift - 0x2C : yabai -m window --space 8 ; yabai -m space --focus 8
+
+# when watching videos in full screen from a window in space 8, a new space (9) is created
+cmd + alt - n: yabai -m window --space 9 ; yabai -m space --focus 9
