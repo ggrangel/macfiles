@@ -11,3 +11,5 @@
 # export PATH="$PATH:$CARGO_HOME/bin" # rust
 # export PATH="$PATH:$HOME/.rvm/bin" # ruby
 # export PATH="$PATH:$PYENV_ROOT/bin" # python
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home"
