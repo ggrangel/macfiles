@@ -1,8 +1,8 @@
-require("auto-save").setup {
+require("auto-save").setup({
   enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
   execution_message = {
     message = function() -- message to print on save
-      return ("AutoSave: saved at " .. vim.fn.strftime "%H:%M:%S")
+      return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
     end,
     dim = 0.18, -- dim the color of `message`
     cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
@@ -13,7 +13,7 @@ require("auto-save").setup {
   -- return false: if it's not ok to be saved
   condition = function(buf)
     local fn = vim.fn
-    local utils = require "auto-save.utils.data"
+    local utils = require("auto-save.utils.data")
 
     if fn.getbufvar(buf, "&modifiable") == 0 then
       return false
@@ -34,4 +34,4 @@ require("auto-save").setup {
     before_saving = nil, -- ran before doing the actual save
     after_saving = nil, -- ran after doing the actual save
   },
-}
+})

@@ -1,16 +1,16 @@
-local telescope = require "telescope"
+local telescope = require("telescope")
 
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 
-telescope.setup {
+telescope.setup({
   defaults = {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-    preview = false,
+    preview = true,
     layout_config = {
-      height = 0.5,
-      width = 0.5,
+      height = 0.8,
+      width = 0.8,
     },
     shorten_path = true,
     sorting_strategy = "ascending",
@@ -116,8 +116,8 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {},
-}
+})
 
-telescope.load_extension "fzf"
-telescope.load_extension "ui-select"
+telescope.load_extension("fzf")
+telescope.load_extension("ui-select")
 -- telescope.load_extension("bookmarks")

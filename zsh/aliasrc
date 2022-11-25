@@ -30,3 +30,15 @@ mkd () {
     mkdir -p -- "$1" &&
     cd -P -- "$1"
 }
+
+last () {
+  ls -Art | tail -n 1 
+  # -A list all files except . and ..
+# -r reverse order while sorting
+# sort by time, newest first
+}
+
+# AMZN
+alias b="brazil"
+alias bb="brazil-build"
+alias km="kinit && mwinit"

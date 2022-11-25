@@ -1,5 +1,5 @@
 vim.cmd([[
-let g:vimwiki_list = [{ 'path': '~/Insync/gustavorangel91@gmail.com/Google Drive/GAGA/vimwiki/', 'syntax': 'markdown', 'ext': '.md' }]
+let g:vimwiki_list = [{ 'path': '~/home/vimwiki/', 'syntax': 'markdown', 'ext': '.md' }]
 let g:vimwiki_ext2syntax = { '.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown' }
 
 " Makes vimwiki markdown links as [text](text.md) instead of [text](text)

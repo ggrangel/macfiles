@@ -12,4 +12,7 @@
 # export PATH="$PATH:$HOME/.rvm/bin" # ruby
 # export PATH="$PATH:$PYENV_ROOT/bin" # python
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home"
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home"
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm

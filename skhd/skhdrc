@@ -12,11 +12,11 @@ cmd + alt + shift - q: pmset sleepnow
 cmd + alt - backspace : yabai -m window --close
 cmd + alt - return : /usr/local/bin/kitty --single-instance -d ~
 
-cmd + alt - a :  echo "yabai -m rule --add app="$(yabai -m query --windows --window | jq .app)" manage=off" >> $HOME/.config/yabai/yabairc
-cmd + alt - r : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+cmd + alt - a :  echo "yabai -m rule --add app="$(yabai -m query --windows --window | jq .app)" title="$(yabai -m query --windows --window | jq .title)" manage=off" >> $HOME/.config/yabai/yabairc
+cmd + alt - r : "/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox"
 cmd + alt - s : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai" # same as brew services restart yabai
 cmd + alt - y: yabai -m display --focus recent
-cmd + alt - z : /Users/ggrangel/scripts/passmenu.sh
+cmd + alt - z : /Users/ggrangel/home/scripts/passmenu.sh
 
 ## Windows movement
 cmd + alt - h : yabai -m window --focus west

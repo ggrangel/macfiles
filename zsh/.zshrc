@@ -33,14 +33,14 @@ complete -C '/usr/local/bin/aws_completer/' aws
 
 [ -f "$ZDOTDIR/dev.zsh" ] && source "$ZDOTDIR/dev.zsh"
 
-export _ZO_DATA_DIR="$HOME/Insync/gustavorangel91@gmail.com/Google Drive/.local/share/zoxide/amzn"
+# export _ZO_DATA_DIR="$HOME/Insync/gustavorangel91@gmail.com/Google Drive/.local/share/zoxide/amzn"
 export _ZO_ECHO=1 # z will print the matched directory before navigating to it.
 eval "$(zoxide init zsh)"
 # ^r to activate mcfly
 eval "$(mcfly init zsh)"
 export MCFLY_KEY_SCHEME=vim
 
-export PATH="$PATH:$HOME/scripts:$HOME/.toolbox/bin"
+export PATH="$PATH:$HOME/home/scripts:$HOME/.toolbox/bin"
 
 # load zhs-syntax-highlighting; should be last.
 source $HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

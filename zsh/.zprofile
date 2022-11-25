@@ -4,14 +4,12 @@
 #export XDG_CONFIG_HOME="$HOME/.config"
 #export XDG_CACHE_HOME="$HOME/.cache"
 
-DRIVE_FOLDER="$HOME/Insync/gustavorangel91@gmail.com/Google Drive"
-
 #export PATH="$PATH:$HOME/scripts:$HOME/.local/bin"
 
 export TERMINAL="kitty"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export BROWSER="brave"
+export BROWSER="chrome"
 
 # cause I don't let just anyone into my $HOME
 #export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"

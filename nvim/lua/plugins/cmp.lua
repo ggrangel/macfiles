@@ -1,15 +1,16 @@
-local cmp = require "cmp"
-local luasnip = require "luasnip"
-local lspkind = require "lspkind"
+local cmp = require("cmp")
+local luasnip = require("luasnip")
+local lspkind = require("lspkind")
 
+require("cmp-npm").setup({})
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
-  local col = vim.fn.col "." - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+  local col = vim.fn.col(".") - 1
+  return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
-cmp.setup {
+cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -17,12 +18,12 @@ cmp.setup {
   },
   mapping = {
     --> ["<C-p>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<C-e>"] = cmp.mapping {
+    ["<C-e>"] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
-    },
+    }),
     --> Super TAB <--
-    ["<CR>"] = cmp.mapping.confirm { select = true },
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -54,7 +55,7 @@ cmp.setup {
   },
   formatting = {
     --> fields = { "kind", "abbr", "menu" },
-    format = lspkind.cmp_format {
+    format = lspkind.cmp_format({
       with_text = true,
       menu = {
         nvim_lsp = "[LSP]",
@@ -62,13 +63,15 @@ cmp.setup {
         luasnip = "[Snip]",
         buffer = "[Buff]",
         path = "[Path]",
+        npm = "[NPM]",
       },
-    },
+    }),
   },
   sources = {
     { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "path" },
+    { name = "npm", keyword_length = 4 },
     { name = "nvim_lua" }, -- lua nvim API
     { name = "buffer", max_item_count = 5, keyword_length = 5 },
   },
@@ -80,4 +83,4 @@ cmp.setup {
     ghost_text = false,
     native_menu = false,
   },
-}
+})

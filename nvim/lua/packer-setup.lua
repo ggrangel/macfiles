@@ -22,6 +22,8 @@ return require("packer").startup(function()
 
   use("sbulav/nredir.nvim")
 
+  use("mfussenegger/nvim-jdtls")
+
   use("lewis6991/impatient.nvim") -- Speed up loading Lua modules in Neovim to improve startup time.
   use({
     "vimwiki/vimwiki",
@@ -169,6 +171,7 @@ return require("packer").startup(function()
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-nvim-lua") --> completion source for nvim lua api
   use("saadparwaiz1/cmp_luasnip")
+  use("David-Kunz/cmp-npm")
 
   -- Snippets
   use({
