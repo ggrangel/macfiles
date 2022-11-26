@@ -111,7 +111,9 @@ ins_left({
 })
 
 ins_left({
-  "%{expand('%:p:h:t')}/%t",
+  function()
+    return vim.fn.expand("%f")
+  end,
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = "bold" },
 })

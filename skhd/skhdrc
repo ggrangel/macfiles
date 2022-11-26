@@ -13,7 +13,7 @@ cmd + alt - backspace : yabai -m window --close
 cmd + alt - return : /usr/local/bin/kitty --single-instance -d ~
 
 cmd + alt - a :  echo "yabai -m rule --add app="$(yabai -m query --windows --window | jq .app)" title="$(yabai -m query --windows --window | jq .title)" manage=off" >> $HOME/.config/yabai/yabairc
-cmd + alt - r : "/Applications/Firefox Developer Edition.app/Contents/MacOS/firefox"
+cmd + alt - r : "/Applications/Firefox.app/Contents/MacOS/firefox"
 cmd + alt - s : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai" # same as brew services restart yabai
 cmd + alt - y: yabai -m display --focus recent
 cmd + alt - z : /Users/ggrangel/home/scripts/passmenu.sh

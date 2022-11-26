@@ -9,7 +9,7 @@
 export TERMINAL="kitty"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export BROWSER="chrome"
+export BROWSER="firefox"
 
 # cause I don't let just anyone into my $HOME
 #export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"

@@ -55,6 +55,7 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="Cisco AnyConnect Secure Mobility Client" manage=off
 yabai -m rule --add app="Bartender 4" manage=off
 yabai -m rule --add app="Google Chrome" opacity=1
+yabai -m rule --add app="Firefox" opacity=1
 yabai -m rule --add app="JetBrains Toolbox" manage=off
 yabai -m rule --add app="Disk Utility" manage=off
 yabai -m rule --add app="Microsoft Outlook" title="Rules" manage=off
@@ -65,3 +66,4 @@ yabai -m rule --add app="Karabiner-Elements" manage=off
 yabai -m rule --add app="Slack" title="^Slack - @.+ - Huddle" manage=off space=7
 yabai -m rule --add app="Installer" manage=off
 yabai -m rule --add app="Finder" manage=off
+yabai -m rule --add app="IntelliJ IDEA" title="Preferences" manage=off
