@@ -140,14 +140,36 @@ for i = 1, 5 do
 end
 
 local function harpoon_send_command_to_tmux(command, tab_name, notify_message)
-    -- TODO:
-    -- 1. get the workspace from which this command was called
-    -- 2. cd to the WS root folder
-    -- 3. execute the commmand
+    local harpoon_tmux = require("harpoon.tmux")
+
+    local cwd = vim.fn.getcwd()
+    local cd_command = "cd " .. cwd
+    local sound_notification = "say 'Success' || say 'Fail'"
+    local AND = " && "
+    local cd_plus_command_plus_sound = cd_command .. AND .. command .. AND .. sound_notification
+
     vim.notify(notify_message)
-    local command_with_sound_notification = command .. " && say 'Success' || say 'Fail'"
-    return require("harpoon.tmux").sendCommand(tab_name, command_with_sound_notification)
+    -- This first command is in case normal mode is on, or if there's already something written in the prompt
+    harpoon_tmux.sendCommand(tab_name, "i")
+    harpoon_tmux.sendCommand(tab_name, cd_plus_command_plus_sound)
 end
+
+keymap("n", "<leader>hq", function()
+    -- TODO:
+    -- get custom command from user input: vim.ui.input
+    local command = ""
+    local tab_name = "root.1"
+    local notify_message = "Running " .. command .. " initiated in tab " .. tab_name
+    harpoon_send_command_to_tmux(command, tab_name, notify_message)
+end)
+keymap("n", "<leader>hQ", function()
+    -- TODO:
+    -- get custom command from user input: vim.ui.input
+    local command = ""
+    local tab_name = "root.2"
+    local notify_message = "Running " .. command .. " initiated in tab " .. tab_name
+    harpoon_send_command_to_tmux(command, tab_name, notify_message)
+end)
 
 keymap("n", "<leader>hb", function()
     local command = "brazil-build release"
@@ -173,13 +195,13 @@ keymap("n", "<leader>hT", function()
     local notify_message = "Remote test initiated in tab " .. tab_name
     harpoon_send_command_to_tmux(command, tab_name, notify_message)
 end)
-keymap("n", "<leader>hq", function()
+keymap("n", "<leader>hl", function()
     local command = "!!"
     local tab_name = "root.1"
     local notify_message = "Running last local executed command in tab " .. tab_name
     harpoon_send_command_to_tmux(command, tab_name, notify_message)
 end)
-keymap("n", "<leader>hQ", function()
+keymap("n", "<leader>hL", function()
     local command = "!!"
     local tab_name = "root.2"
     local notify_message = "Running last remoted executed command in tab " .. tab_name

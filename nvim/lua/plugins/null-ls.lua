@@ -8,8 +8,14 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
     debug = false,
     sources = {
-        formatting.prettier,
+        formatting.prettierd,
         formatting.stylua,
+        formatting.eslint_d,
+        diagnostics.eslint_d,
+        code_actions.eslint_d,
+        -- formatting.eslint,
+        -- diagnostics.eslint,
+        -- code_actions.eslint,
         diagnostics.shellcheck,
         -- diagnostics.checkstyle.with({
         --     extra_args = { "-c", "/Users/ggrangel/.config/nvim/configuration/java/fintech-business-checkstyle.xml" },

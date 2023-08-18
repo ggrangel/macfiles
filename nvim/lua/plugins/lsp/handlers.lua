@@ -1,23 +1,5 @@
 local M = {}
 
-function bemol()
-    local bemol_dir = vim.fs.find({ ".bemol" }, { upward = true, type = "directory" })[1]
-    local ws_folders_lsp = {}
-    if bemol_dir then
-        local file = io.open(bemol_dir .. "/ws_root_folders", "r")
-        if file then
-            for line in file:lines() do
-                table.insert(ws_folders_lsp, line)
-            end
-            file:close()
-        end
-    end
-
-    for _, line in ipairs(ws_folders_lsp) do
-        vim.lsp.buf.add_workspace_folder(line)
-    end
-end
-
 M.setup = function()
     local signs = {
         { name = "DiagnosticSignError", text = "" },
@@ -67,13 +49,11 @@ end
 
 M.on_attach = function(client, bufnr)
     -- tsserver already has a builtin format. Let's disable it so it does not collide with prettier.
-    if client.name == "tsserver" or client.name == "jsonls" then
-        client.server_capabilities.document_formatting = false
+    if client.name == "volar" or client.name == "tsserver" or client.name == "jsonls" then
         client.server_capabilities.document_formatting = false
     end
 
     lsp_highlight_document(client)
-    -- bemol()
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
