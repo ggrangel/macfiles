@@ -7,10 +7,10 @@ telescope.setup({
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-    preview = true,
+    preview = false,
     layout_config = {
-      height = 0.8,
-      width = 0.8,
+      height = 0.5,
+      width = 0.5,
     },
     shorten_path = true,
     sorting_strategy = "ascending",
@@ -19,11 +19,9 @@ telescope.setup({
     mappings = {
       i = {
         ["<esc>"] = actions.close,
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
 
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-n>"] = actions.move_selection_next,
+        ["<C-p>"] = actions.move_selection_previous,
 
         ["<C-c>"] = actions.close,
 
@@ -92,7 +90,7 @@ telescope.setup({
     playground = {
       enable = true,
       disable = {},
-      updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+      updatetime = 25,      -- Debounced time for highlighting nodes in the playground from source code
       persist_queries = false, -- Whether the query persists across vim sessions
       keybindings = {
         toggle_query_editor = "o",

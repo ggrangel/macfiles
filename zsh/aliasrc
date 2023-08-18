@@ -5,25 +5,17 @@ alias rm="rm -iv" # run \rm to ignore its alias
 alias ls="lsd -hA --group-dirs first"
 
 # one-letter aliases
-alias s="kitty +kitten ssh" # without this, keyboard won't work properly in ssh
-alias t="tmux"
+alias e="exit"
+alias g="git"
+alias s="ssh -o proxycommand=none" # without this, keyboard won't work properly in ssh
 alias v="nvim"
+alias gg="lazygit"
 
-# if I only type lazygit, autojump may take us to the lazygit dir
-alias gg="lazygit -p ."
-alias gs="git status"
-alias gd="git diff"
 alias src="source $ZDOTDIR/.zshrc"
+alias src-alias="source $ZDOTDIR/aliasrc"
 
-# copy current pwd to clipboard
 alias cpwd="pwd | tr '\n' ' ' | pbcopy"
 
-# show tmux keys
-alias tmkeys="cat $HOME/.config/tmux/tmux.conf | grep ^bind"
-
-alias keys="bat $HOME/.config/skhd/skhdrc"
-
-# make a new directory and cd to it
 mkd () {
     # -- makes sure the passed name for the new directory is not interpreted as an option to mkdir or cd
     # -P used on cd resolves symbolink links.
@@ -31,14 +23,25 @@ mkd () {
     cd -P -- "$1"
 }
 
-last () {
-  ls -Art | tail -n 1 
-  # -A list all files except . and ..
-# -r reverse order while sorting
-# sort by time, newest first
-}
-
 # AMZN
 alias b="brazil"
 alias bb="brazil-build"
-alias km="kinit && mwinit"
+alias brc="brazil-recursive-cmd-parallel --allPackages"
+alias brcbb="brazil-recursive-cmd-parallel --allPackages brazil-build release"
+alias rclean="brazil-recursive-cmd-parallel --reverse --continue --allPackages brazil-build clean; say 'Clean Finished'"
+
+alias bars="brazil-build app run snapshot"
+alias bbr="brazil-build release"
+alias bbcd="brazil-build cdk deploy"
+allias bbt="bb test"
+
+alias auth="mwinit -s -o --aea"
+alias dev-desktop="s dev-dsk-ggrangel-1e-d00489be.us-east-1.amazon.com"
+
+function ada-cred {
+  ada credentials update --account=$1 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --once
+}
+
+function cdk-deploy {
+    brazil-build deploy:assets $1 && brazil-build cdk deploy $1
+}

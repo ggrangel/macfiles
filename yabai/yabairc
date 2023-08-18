@@ -13,8 +13,8 @@ yabai -m config window_origin_display focused
 yabai -m config window_placement second_child # New window spawns to the right if vertical split, or bottom if horizontal split
 yabai -m config mouse_follows_focus on
 yabai -m config window_topmost on # floating windows are always on top
-yabai -m config window_opacity on
-yabai -m config normal_window_opacity 0.8 # unfocused windows
+# yabai -m config window_opacity on
+# yabai -m config normal_window_opacity 0.8 # unfocused windows
 # paddings
 yabai -m config top_padding    10
 yabai -m config bottom_padding 10
@@ -47,23 +47,32 @@ setup_space 4 d 1
 setup_space 5 e 2
 setup_space 6 f 2
 setup_space 7 g 2
-setup_space 8 h 2
+setup_space 8 g 3
+setup_space 9 i 3
+setup_space 10 j 3
+setup_space 11 k 3
+
+# yabai -m config --space 5 layout float
+yabai -m config --space 5 --toggle split
 
 ## Rules
 
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="Cisco AnyConnect Secure Mobility Client" manage=off
-yabai -m rule --add app="Bartender 4" manage=off
-yabai -m rule --add app="Google Chrome" opacity=1
-yabai -m rule --add app="Firefox" opacity=1
 yabai -m rule --add app="JetBrains Toolbox" manage=off
 yabai -m rule --add app="Disk Utility" manage=off
 yabai -m rule --add app="Microsoft Outlook" title="Rules" manage=off
-yabai -m rule --add app="Microsoft Outlook" space=2
-yabai -m rule --add app="Slack" space=6
-yabai -m rule --add app="Telegram" space=8
+yabai -m rule --add app="Microsoft Outlook" space=9 opacity=1
+yabai -m rule --add app="Slack" space=8 opacity=1
+yabai -m rule --add app="Telegram" space=11 
 yabai -m rule --add app="Karabiner-Elements" manage=off
-yabai -m rule --add app="Slack" title="^Slack - @.+ - Huddle" manage=off space=7
+yabai -m rule --add app="Slack" title="^Slack - @.+ - Huddle" manage=off space=11
 yabai -m rule --add app="Installer" manage=off
 yabai -m rule --add app="Finder" manage=off
+yabai -m rule --add app="Microsoft Outlook" title="Accounts" manage=off
+yabai -m rule --add app="Amazon Chime" space=10 opacity=1
+yabai -m rule --add app="DataGrip" title="Data Sources and Drivers" manage=off
+yabai -m rule --add app= title= manage=off
+yabai -m rule --add app="QuickTime Player" manage=off
 yabai -m rule --add app="IntelliJ IDEA" title="Preferences" manage=off
+yabai -m rule --add app= title= manage=off

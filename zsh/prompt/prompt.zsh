@@ -78,7 +78,6 @@ git_prompt_status() {
   fi
 }
 
-
 prompt_git_branch() {
     autoload -Uz vcs_info 
     precmd_vcs_info() { vcs_info }
@@ -98,7 +97,6 @@ prompt_purity_precmd() {
 
 prompt_purification_setup() {
     # Display git branch
-
     autoload -Uz add-zsh-hook
     add-zsh-hook precmd prompt_purity_precmd
 
