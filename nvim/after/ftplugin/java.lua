@@ -33,9 +33,9 @@ local config = {
         "java.base/java.lang=ALL-UNNAMED",
         "-javaagent:" .. "/Users/ggrangel/.config/nvim/configuration/java/lombok.jar",
         "-jar",
-        "/Users/ggrangel/.config/nvim/configuration/java/jdt-language-server-1.6.0-202111261512/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
+        "/Users/ggrangel/home/documents/jdt-language-server-1.6.0-202111261512/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
         "-configuration",
-        "/Users/ggrangel/.config/nvim/configuration/java/jdt-language-server-1.6.0-202111261512/config_mac/",
+        "/Users/ggrangel/home/documents/jdt-language-server-1.6.0-202111261512/config_mac/",
         "-data",
         data_dir,
     },
@@ -43,16 +43,13 @@ local config = {
         workspaceFolders = ws_folders_jdtls,
     },
     settings = {
-        -- java = {
-        --     format = {
-        --         url = "/Users/ggrangel/.config/nvim/configuration/java/fintech-business-checkstyle.xml",
-        --     },
-        -- },
+        java = {
+            format = {
+                url = "/Users/ggrangel/.config/nvim/configuration/java/business-expansion-codestyle.xml",
+                profile = "FintechBusinessExpansion",
+            },
+        },
     },
 }
 
 require("jdtls").start_or_attach(config)
-
--- for _, line in ipairs(ws_folders_lsp) do
---     vim.lsp.buf.add_workspace_folder(line)
--- end

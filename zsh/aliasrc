@@ -33,7 +33,7 @@ alias rclean="brazil-recursive-cmd-parallel --reverse --continue --allPackages b
 alias bars="brazil-build app run snapshot"
 alias bbr="brazil-build release"
 alias bbcd="brazil-build cdk deploy"
-allias bbt="bb test"
+alias bbt="bb test"
 
 alias auth="mwinit -s -o --aea"
 alias dev-desktop="s dev-dsk-ggrangel-1e-d00489be.us-east-1.amazon.com"

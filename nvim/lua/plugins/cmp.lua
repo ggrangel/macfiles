@@ -1,16 +1,16 @@
 local cmp = require("cmp")
-local luasnip = require("luasnip")
+-- local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-require("luasnip/loaders/from_vscode").lazy_load()
+-- require("luasnip/loaders/from_vscode").lazy_load()
 
 cmp.setup({
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
+    -- snippet = {
+    --     expand = function(args)
+    --         luasnip.lsp_expand(args.body)
+    --     end,
+    -- },
     mapping = {
         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
@@ -28,7 +28,7 @@ cmp.setup({
             menu = {
                 nvim_lsp = "[LSP]",
                 nvim_lua = "[NV-LUA]",
-                luasnip = "[Snip]",
+                -- luasnip = "[Snip]",
                 buffer = "[Buff]",
                 path = "[Path]",
             },
@@ -36,7 +36,7 @@ cmp.setup({
     },
     sources = {
         { name = "nvim_lsp" },
-        { name = "luasnip" },
+        -- { name = "luasnip" },
         { name = "path" },
         { name = "nvim_lua" }, -- lua nvim API
         { name = "buffer",  max_item_count = 5, keyword_length = 5 },

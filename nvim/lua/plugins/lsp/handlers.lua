@@ -49,7 +49,7 @@ end
 
 M.on_attach = function(client, bufnr)
     -- tsserver already has a builtin format. Let's disable it so it does not collide with prettier.
-    if client.name == "volar" or client.name == "tsserver" or client.name == "jsonls" then
+    if client.name == "volar" or client.name == "tsserver" or client.name == "jsonls" or client.name == "jdtls" then
         client.server_capabilities.document_formatting = false
     end
 

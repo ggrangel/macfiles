@@ -1,28 +1,27 @@
 vim.g.projectionist_heuristics = {
-    ["*.java"] = {
-        ["src/java/*.java"] = {
-            alternate = "src/tst/java/{}Test.java",
-            type = "source",
+    -- src/main/java/com/amazon/jaguar/recorder/br/client/fiorino/FiorinoClientWrapperImpl.java
+    -- src/test/java/com/amazon/jaguar/recorder/br/client/fiorino/FiorinoClientWrapperImplTest.java
+    -- /Volumes/workplace/TbsPortal/src/TbsPortalBackend
+    ["*"] = {
+        ["src/main/java/*.java"] = {
+            alternate = "src/test/java/{}Test.java",
         },
-        ["src/tst/java/*Test.java"] = {
+        ["src/test/java/*Test.java"] = {
             alternate = "src/main/java/{}.java",
-            type = "test",
+        },
+        ["src/*/src/*.ts"] = {
+            alternate = "src/{}/test/{}.test.ts",
+        },
+        ["/Volumes/workplace/src/TbsPortalBackend/test/*.test.ts"] = {
+            alternate = "/Volumes/workplace/src/TbsPortalBackend/src/{}.ts",
         },
     },
-    ["*.ts"] = {
-        ["src/*.ts"] = {
-            alternate = "test/{}.test.ts",
-            type = "source",
-        },
-        ["test/*.test.ts"] = {
-            alternate = "src/{}.ts",
-            type = "test",
-        },
-        ["src/*.tsx"] = {
-            alternate = "tst/{}.test.tsx",
-        },
-        ["tst/*.test.tsx"] = {
-            alternate = "src/{}.tsx",
-        },
-    },
+    -- [".tsx"] = {
+    --     ["src/*.tsx"] = {
+    --         alternate = "tst/{}.test.tsx",
+    --     },
+    --     ["tst/*.test.tsx"] = {
+    --         alternate = "src/{}.tsx",
+    --     },
+    -- },
 }
