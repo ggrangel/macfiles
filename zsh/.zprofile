@@ -5,6 +5,8 @@ export BROWSER="/Applications/Firefox.app/Contents/MacOS/firefox"
 # for AmazonCodeWhisperer
 export OPENAI_API_KEY="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"
 
+export PASSWORD_STORE_CLIP_TIME=600
+
 # it is recommended to set this env variable before setting any other
 #export XDG_STATE_HOME="$HOME/.local/state"
 #export XDG_DATA_HOME="$HOME/.local/share"

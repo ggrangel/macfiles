@@ -1,9 +1,9 @@
--- -- Reloads vim whenever you save this file
--- vim.api.nvim_create_augroup("packer_user_config", { clear = true })
--- vim.api.nvim_create_autocmd(
---     "BufWritePost",
---     { pattern = { "packer-setup.lua" }, command = "source <afile> | PackerSync", group = "packer_user_config" }
--- )
+-- Reloads vim whenever you save this file
+vim.api.nvim_create_augroup("packer_user_config", { clear = true })
+vim.api.nvim_create_autocmd(
+	"BufWritePost",
+	{ pattern = { "packer-setup.lua" }, command = "source <afile> | PackerSync", group = "packer_user_config" }
+)
 
 -- Have packer use a popup window
 require("packer").init({
@@ -44,9 +44,9 @@ return require("packer").startup(function()
 			require("plugins.treesitter")
 		end,
 	})
-	use("p00f/nvim-ts-rainbow")                     -- colored parentheses
+	use("p00f/nvim-ts-rainbow") -- colored parentheses
 	use("nvim-treesitter/nvim-treesitter-textobjects") -- define custom textobjects (like "f" for function and "c" for conditionals)
-	use("nvim-treesitter/nvim-treesitter-context")  -- sticky header for context
+	use("nvim-treesitter/nvim-treesitter-context") -- sticky header for context
 
 	-- Navigation
 	use({
@@ -89,14 +89,14 @@ return require("packer").startup(function()
 		config = function()
 			require("plugins.gitsigns")
 		end,
-	})                               -- git decorations
+	}) -- git decorations
 	use("kyazdani42/nvim-web-devicons") -- Required by many plugins
 	use({
 		"rcarriga/nvim-notify",
 		config = function()
 			require("plugins.notify") -- improves notification interface
 		end,
-	})                        --> notification manager
+	}) --> notification manager
 	use("RRethy/vim-illuminate") -- highlights other uses of the word under cursor using LSP and treesitter
 
 	-- Color themes
@@ -141,15 +141,15 @@ return require("packer").startup(function()
 	-- use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua") --> completion source for nvim lua api
-	use("saadparwaiz1/cmp_luasnip")
+	-- use("saadparwaiz1/cmp_luasnip")
 
-	-- -- Snippets
-	-- use({
-	-- 	"L3MON4D3/LuaSnip",
-	-- 	config = function()
-	-- 		require("plugins.luasnip-setup")
-	-- 	end,
-	-- })
+	-- Snippets
+	use({
+		"L3MON4D3/LuaSnip",
+		config = function()
+			require("plugins.luasnip-setup")
+		end,
+	})
 	-- use({
 	-- 	"rafamadriz/friendly-snippets",
 	-- 	config = function()
@@ -164,14 +164,14 @@ return require("packer").startup(function()
 			require("plugins.lsp")
 		end,
 	})
-	use("williamboman/mason.nvim")        -- provides a repository and frontend that helps a user manage the installation of various third-party tools (LSP servers, formatters, linters)
+	use("williamboman/mason.nvim") -- provides a repository and frontend that helps a user manage the installation of various third-party tools (LSP servers, formatters, linters)
 	use("williamboman/mason-lspconfig.nvim") -- uses Mason to ensure installation of user specified LSP servers and will tell nvim-lspconfig what command to use to launch those servers (that is, it's a bridge between the 2 former plugins)
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
 			require("plugins/null-ls")
 		end,
-	})                       -- for formatters and linters
+	}) -- for formatters and linters
 	use("onsails/lspkind.nvim") --> add pictograms to neovim lsp
 	-- Improves neovim built-in LSP experience with a bunch of new functionalities
 	-- https://nvimdev.github.io/lspsaga/
@@ -187,10 +187,10 @@ return require("packer").startup(function()
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
-			{ "nvim-lua/plenary.nvim" },                         -- dependency
-			{ "burntsushi/ripgrep" },                            -- necessary for live_grep picker
+			{ "nvim-lua/plenary.nvim" }, -- dependency
+			{ "burntsushi/ripgrep" }, -- necessary for live_grep picker
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- better sorgint performance
-			{ "nvim-telescope/telescope-ui-select.nvim" },       --> sets vim.ui.select to telescope
+			{ "nvim-telescope/telescope-ui-select.nvim" }, --> sets vim.ui.select to telescope
 		},
 		config = function()
 			require("plugins.telescope")
@@ -203,6 +203,7 @@ return require("packer").startup(function()
 		config = function()
 			require("smartcolumn").setup({
 				colorcolumn = "120",
+				disabled_filetypes = { "markdown", "vimwiki", "text" },
 			})
 		end,
 	})

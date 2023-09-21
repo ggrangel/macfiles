@@ -17,6 +17,9 @@ null_ls.setup({
         formatting.eslint_d,
         formatting.prettierd,
         formatting.stylua,
+        formatting.xmlformat.with({
+            extra_args = { "--indent", "4" },
+        }),
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
