@@ -95,8 +95,7 @@ keymap("n", "K", vim.lsp.buf.hover)
 keymap("n", "gi", vim.lsp.buf.implementation)
 keymap("n", "<C-k>", vim.lsp.buf.signature_help)
 keymap("n", "<leader>gt", vim.lsp.buf.type_definition)
--- keymap("n", "<leader>rn", ":Lspsaga rename mode=n <CR>")
-keymap("n", "<leader>rn", vim.lsp.buf.rename)
+keymap("n", "<leader>rn", ":Lspsaga rename mode=n <CR>")
 keymap("n", "gr", ":Lspsaga finder <CR>")
 keymap("n", "<leader>ca", vim.lsp.buf.code_action)
 -- keymap("n", "<leader>ca", ":Lspsaga code_action <CR>")
@@ -109,6 +108,10 @@ end)
 keymap("n", "gl", function()
 	return vim.diagnostic.open_float({ border = "rounded" })
 end)
+
+-- Test
+keymap("n", "<leader>te", ":TestFile <CR>")
+keymap("n", "<leader>tn", ":TestNearest <CR>")
 
 -- Harpoon
 keymap("n", "<leader>hr", function()
@@ -201,21 +204,4 @@ keymap({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
 keymap({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
 keymap({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
 keymap({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
-keymap("n", "<c-n>", "<Plug>(YankyCycleForward)")  -- cycling through yank history
-keymap("n", "<c-p>", "<Plug>(YankyCycleBackward)") -- paste what's before on buffer
-
--- test
-keymap("n", "<leader>te", ":wa | TestFile <CR>")
-keymap("n", "<leader>tn", ":wa | TestNearest <CR>")
-
--- other.nvim: honoring legacy shortcut
-keymap("n", ":A", ":Other <CR>")
-keymap("n", ":AV", ":OtherVSplit <CR>")
-
--- local function map(m, k, v, desc)
---     if desc then
---         desc = "Desc: " .. desc
---     end
---     vim.keymap.set(m, k, v, { silent = true }, { desc = desc })
--- end
--- keymap("n", "<C-w>", ":CWGenerateNvim<CR>")
+keymap("n", "<c-n>", "<Plug>(YankyCycleForward)") -- cycling through yank history

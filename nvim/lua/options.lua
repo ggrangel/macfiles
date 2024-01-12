@@ -44,7 +44,7 @@ local options = {
 	guifont = "monospace:h17", -- the font used in graphical neovim applications
 	termguicolors = true,   -- for opacity changes
 
-	-- shadafile = "NONE", -- improves startuptime a little bit
+	shadafile = "NONE",     -- improves startuptime a little bit
 }
 
 for k, v in pairs(options) do

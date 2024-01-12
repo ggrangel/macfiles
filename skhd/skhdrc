@@ -19,7 +19,7 @@ cmd + alt - return : /usr/local/bin/kitty --single-instance -d ~
 # cmd + alt - s : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai" # same as brew services restart yabai
 cmd + alt - z : /Users/ggrangel/home/scripts/passmenu.sh
 
-# cmd + alt - v : open /System/Library/PreferencePanes/Keyboard.prefPane/
+cmd + alt - v : open /System/Library/PreferencePanes/Displays.prefPane/
 # cmd + alt - f : open ~/home/
 
 # cmd + alt - 0x1E: yabai -m window --resize bottom:0:1000; yabai -m window --resize top:0:1000 # cmd+alt+[

@@ -30,13 +30,13 @@ alias brc="brazil-recursive-cmd-parallel --allPackages"
 alias brcbb="brazil-recursive-cmd-parallel --allPackages brazil-build release"
 alias rclean="brazil-recursive-cmd-parallel --reverse --continue --allPackages brazil-build clean; say 'Clean Finished'"
 
-alias bars="brazil-build app run snapshot"
+alias bars="brazil-build app run test -- -u"
 alias bbr="brazil-build release"
 alias bbcd="brazil-build cdk deploy"
 alias bbt="bb test"
 
-alias auth="mwinit -s -o --aea"
-alias dev-desktop="s dev-dsk-ggrangel-1e-d00489be.us-east-1.amazon.com"
+alias auth="mwinit -s" # -s for CRs
+alias cloud="ssh dev-dsk-ggrangel-1e-d00489be.us-east-1.amazon.com"
 
 function ada-cred {
   ada credentials update --account=$1 --provider=conduit --role=IibsAdminAccess-DO-NOT-DELETE --once

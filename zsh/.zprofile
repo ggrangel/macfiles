@@ -2,8 +2,8 @@ export TERMINAL="kitty"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="/Applications/Firefox.app/Contents/MacOS/firefox"
-# for AmazonCodeWhisperer
-export OPENAI_API_KEY="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"
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home"
 
 export PASSWORD_STORE_CLIP_TIME=600
 

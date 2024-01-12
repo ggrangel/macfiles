@@ -14,5 +14,6 @@
 
 # export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-17.0.4.jdk/Contents/Home/bin/java"
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# Node Version Manager
+# export NVM_DIR="$HOME/.config/nvm"
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm

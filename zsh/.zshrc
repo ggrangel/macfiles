@@ -1,3 +1,6 @@
+# Profiling start
+# zmodload zsh/zprof
+
 # Change prompt
 fpath=($ZDOTDIR/prompt $fpath)
 source $HOME/.config/zsh/prompt/prompt.zsh
@@ -6,8 +9,7 @@ export PASSWORD_STORE_CLIP_TIME=300
 
 # disable Ctrl+s (freezes the terminal)
 stty -ixon
-# run bindkey for a list of zsh keybindings
-bindkey -r "^D" # used to kill tmux pane and window. remove this zsh keybinding
+# bindkey -r "^D" # used to kill tmux pane and window. remove this zsh keybinding
 
 setopt AUTOCD # enables .. to go back one dir
 setopt AUTOPUSHD # push the curr dir visited to stack
@@ -38,9 +40,7 @@ source $ZDOTDIR/completion.zsh
 complete -C '/usr/local/bin/aws_completer/' aws
 
 [ -f "$ZDOTDIR/vi.zsh" ] && source "$ZDOTDIR/vi.zsh"
-
 [ -f "$ZDOTDIR/aliasrc" ] && source "$ZDOTDIR/aliasrc"
-
 [ -f "$ZDOTDIR/dev.zsh" ] && source "$ZDOTDIR/dev.zsh"
 
 export _ZO_ECHO=1 # z will print the matched directory before navigating to it.
@@ -49,7 +49,10 @@ eval "$(zoxide init zsh)"
 eval "$(mcfly init zsh)"
 export MCFLY_KEY_SCHEME=vim
 
-export PATH="$PATH:$HOME/home/scripts:$HOME/.toolbox/bin:/Applications/Fortify/Fortify_SCA_and_Apps_21.2.2/bin:$HOME/.local/bin"
+export PATH="$PATH:$HOME/home/scripts:$HOME/.toolbox/bin::$HOME/.local/bin"
 
 # load zhs-syntax-highlighting; should be last.
 source $HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Profiling end
+# zprof > /tmp/profile-result

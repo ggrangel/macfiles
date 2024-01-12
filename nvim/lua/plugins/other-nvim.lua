@@ -16,6 +16,14 @@ require("other-nvim").setup({
             pattern = "src/(.*)/tst/(.*).test.tsx",
             target = "src/%1/src/%2.tsx",
         },
+        {
+            pattern = "main/(.*).java",
+            target = "test/%1Test.java",
+        },
+        {
+            pattern = "test/(.*)Test.java",
+            target = "main/%1.java",
+        },
     },
     style = {
         -- How the plugin paints its window borders

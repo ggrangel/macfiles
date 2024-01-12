@@ -9,16 +9,17 @@ null_ls.setup({
     debug = false,
     sources = {
         code_actions.gitsigns,
-        code_actions.eslint_d,
+        code_actions.eslint,
         -- diagnostics.checkstyle.with({
         --     extra_args = { "-c", "/Users/ggrangel/.config/nvim/configuration/java/fintech-business-checkstyle.xml" },
         -- }),
-        diagnostics.eslint_d,
-        formatting.eslint_d,
+        diagnostics.eslint, -- estlint_d has bugs
         formatting.prettierd,
         formatting.stylua,
+        code_actions.shellcheck,
+        formatting.shfmt,
         formatting.xmlformat.with({
-            extra_args = { "--indent", "4" },
+            extra_args = { "--indent", "2" },
         }),
     },
     on_attach = function(client, bufnr)
