@@ -12,6 +12,7 @@ local servers = {
     "lua_ls",
     "pyright",
     "tsserver",
+    "clangd",
 }
 
 for _, server in pairs(servers) do
@@ -19,6 +20,14 @@ for _, server in pairs(servers) do
         on_attach = handlers.on_attach,
         capabilities = handlers.capabilities,
     }
+
+    if server == "clangd" then
+        -- fixes a bug in clangd
+        opts.cmd = {
+            "clangd",
+            "--offset-encoding=utf-16",
+        }
+    end
 
     local has_custom_opts, server_custom_opts = pcall(require, "plugins/lsp/settings/" .. server)
     if has_custom_opts then

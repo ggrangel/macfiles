@@ -16,6 +16,8 @@ null_ls.setup({
         diagnostics.eslint, -- estlint_d has bugs
         formatting.prettierd,
         formatting.stylua,
+        formatting.clang_format,
+        -- diagnostics.cpplint,
         code_actions.shellcheck,
         formatting.shfmt,
         formatting.xmlformat.with({
